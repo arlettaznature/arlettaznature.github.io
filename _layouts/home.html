@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="wrap hero-inner">
+    {% if page.image %}
+      <figure class="hero-image"><img src="{{ page.image | relative_url }}" alt="{{ page.image_alt }}"></figure>
+    {% endif %}
+    <div class="hero-text prose">
+      {{ content }}
+    </div>
+  </div>
+</section>
+
+<section class="wrap news">
+  <h2>News</h2>
+  <div class="news-grid">
+    {% assign items = site.news | sort: "date" | reverse %}
+    {% for item in items limit: page.news_count %}
+      <article class="news-card">
+        {% if item.link %}<a class="news-link" href="{{ item.link | relative_url }}"{% unless item.link contains '/files/' %} target="_blank" rel="noopener"{% endunless %}>{% endif %}
+          {% if item.image %}<img src="{{ item.image | relative_url }}" alt="" loading="lazy">{% endif %}
+          <div class="news-body">
+            <p class="news-meta">{{ item.category }}{% if item.show_date %} · {{ item.date | date: "%B %Y" }}{% endif %}</p>
+            <h3>{{ item.title }}</h3>
+            {{ item.content }}
+          </div>
+        {% if item.link %}</a>{% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>

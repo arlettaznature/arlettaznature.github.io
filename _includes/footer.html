@@ -1,0 +1,7 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>{{ site.title }}</strong> · {{ site.tagline }}</p>
+    {% if site.contact_email != "" %}<p><a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>{% endif %}
+    <p class="muted">{{ site.footer_note }}</p>
+  </div>
+</footer>

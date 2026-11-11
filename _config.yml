@@ -1,0 +1,49 @@
+# ---------------------------------------------------------------
+# Site settings. You can change the texts below; keep the format
+# "name: value". Changes here can take a few minutes to appear.
+# ---------------------------------------------------------------
+
+title: Arlettaz Nature
+tagline: Conservation biology research
+description: >-
+  Research in conservation biology: from threatened species to ecosystems,
+  with practical guidance for nature conservation.
+
+# Draft mode: shows a "draft" banner and asks search engines not to list
+# the site. Change to false when the website is officially launched.
+draft: true
+
+# Shown in the footer
+contact_email: ""          # e.g. raphael.arlettaz@example.org
+footer_note: "Content formerly published at www.cb.iee.unibe.ch (Division of Conservation Biology, University of Bern)."
+
+# ---------------------------------------------------------------
+# Technical settings – normally no need to change anything below.
+# ---------------------------------------------------------------
+url: "https://arlettaznature.github.io"
+baseurl: ""
+permalink: pretty
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: true   # a new line in the text = a new line on the page
+
+collections:
+  news:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+
+plugins:
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - HOW-TO-EDIT.md
+  - Gemfile
+  - Gemfile.lock
+  - tools/

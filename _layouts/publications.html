@@ -1,0 +1,33 @@
+---
+layout: default
+---
+{% comment %}
+  Used by the yearly publication files (publications/2024.md etc.)
+  and by the publications overview page (publications/index.md),
+  which automatically shows the most recent year.
+{% endcomment %}
+{% assign years = site.pages | where: "layout", "publications" | where_exp: "p", "p.year" | sort: "year" | reverse %}
+{% if page.year %}
+  {% assign shown = page %}
+{% else %}
+  {% assign shown = years | first %}
+{% endif %}
+<div class="wrap with-sidebar">
+  <article class="prose publications-list">
+    <h1>Publications {{ shown.year }}</h1>
+    {% if page.year %}
+      {{ content }}
+    {% else %}
+      {{ content }}
+      {{ shown.content | markdownify }}
+    {% endif %}
+  </article>
+  <aside class="year-list" aria-label="Publications by year">
+    <h2>By year</h2>
+    <ul>
+      {% for y in years %}
+        <li{% if y.year == shown.year %} class="active"{% endif %}><a href="{{ y.url | relative_url }}">{{ y.year }}</a></li>
+      {% endfor %}
+    </ul>
+  </aside>
+</div>

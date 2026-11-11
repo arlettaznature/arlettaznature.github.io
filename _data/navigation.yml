@@ -1,0 +1,26 @@
+# The main menu. Each entry has a title and a url.
+# Entries with "children" get a small drop-down menu.
+
+- title: Home
+  url: /
+
+- title: Research
+  url: /research/
+  children:
+    - title: Research axes
+      url: /research/
+    - title: Projects by research field
+      url: /research/projects-by-research-field/
+    - title: Projects by ecosystem type
+      url: /research/projects-by-ecosystem-type/
+    - title: Projects by model species
+      url: /research/projects-by-model-species/
+
+- title: Publications
+  url: /publications/
+
+- title: Book
+  url: /research/book-biodiversity-of-valais/
+
+- title: Media
+  url: /research/media/
